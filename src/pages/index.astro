@@ -85,27 +85,33 @@ import Layout from '../layouts/Layout.astro';
     color: white;
     text-align: center;
     z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 90%;
+    width: 100%;
   }
 
   .content .logo {
-    width: 300px;
+    width: 80%;
+    max-width: 300px;
     height: auto;
     margin-bottom: 20px;
   }
 
   .content h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0;
     font-weight: 700;
   }
 
   .content p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 10px;
+    word-wrap: break-word;
   }
 
   #countdown {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 20px 0;
   }
@@ -121,13 +127,17 @@ import Layout from '../layouts/Layout.astro';
     z-index: 0;
   }
 
-  .content a {
-    color: #FFD700;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  @media (min-width: 768px) {
+    .content h1 {
+      font-size: 4rem;
+    }
 
-  .content a:hover {
-    text-decoration: underline;
+    .content p {
+      font-size: 1.5rem;
+    }
+
+    #countdown {
+      font-size: 2rem;
+    }
   }
 </style>
