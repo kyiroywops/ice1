@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Coming Soon">
+  <div class="video-background">
+    <video autoplay loop muted playsinline>
+      <source src="/background-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="content">
+      <img src="/logo.png" alt="Logo" class="logo" />
+      <h1>Coming Soon</h1>
+      <p id="countdown"></p>
+      <p>We are crafting innovative VST plugins to elevate your music production experience. Stay tuned for groundbreaking tools that will redefine your creative process.</p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const countdownElement = document.getElementById('countdown');
+    if (countdownElement) {
+      const countdownDate = new Date('2024-12-01T00:00:00').getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (distance < 0) {
+          clearInterval(countdownInterval);
+          countdownElement.innerHTML = "It's time!";
+        }
+      }
+
+      const countdownInterval = setInterval(updateCountdown, 1000);
+      updateCountdown();
+    }
+  });
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .video-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+  }
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .content .logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .content h1 {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .content p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  #countdown {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+
+  .video-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+  }
+
+  .content a {
+    color: #FFD700; /* Un color destacado para el enlace */
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .content a:hover {
+    text-decoration: underline;
+  }
+</style>
