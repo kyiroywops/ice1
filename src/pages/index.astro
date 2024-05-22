@@ -24,6 +24,8 @@ import Layout from '../layouts/Layout.astro';
       const countdownDate = new Date('2024-12-01T00:00:00').getTime();
 
       function updateCountdown() {
+        if (!countdownElement) return;
+
         const now = new Date().getTime();
         const distance = countdownDate - now;
 
@@ -120,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .content a {
-    color: #FFD700; /* Un color destacado para el enlace */
+    color: #FFD700;
     text-decoration: none;
     font-weight: bold;
   }
