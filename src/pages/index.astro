@@ -95,25 +95,26 @@ import Layout from '../layouts/Layout.astro';
     width: 80%;
     max-width: 300px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .content h1 {
     font-size: 3rem;
     margin: 0;
     font-weight: 700;
+    margin-bottom: 10px;
   }
 
   .content p {
     font-size: 1.2rem;
-    margin-top: 10px;
+    margin-top: 5px;
     word-wrap: break-word;
   }
 
   #countdown {
     font-size: 1.5rem;
     font-weight: 700;
-    margin: 20px 0;
+    margin: 10px 0;
   }
 
   .video-background::before {
@@ -128,16 +129,23 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (min-width: 768px) {
+    .content .logo {
+      margin-bottom: 20px;
+    }
+
     .content h1 {
       font-size: 4rem;
+      margin-bottom: 20px;
     }
 
     .content p {
       font-size: 1.5rem;
+      margin-top: 10px;
     }
 
     #countdown {
       font-size: 2rem;
+      margin: 20px 0;
     }
   }
 </style>
